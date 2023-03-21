@@ -153,9 +153,18 @@ class DobleLinkedList{
             newNode.next = temp;
             this.head = newNode;
             temp.next.prev = newNode;
-            // console.log(temp);
             return;
         }
+        while(temp != null && temp.data != befor){
+            temp = temp.next;
+        }
+        if (temp == null){
+            return;
+        }
+            newNode.next = temp;
+            newNode.prev = temp.prev;
+            temp.prev.next = newNode;
+            temp.prev = newNode;
     }
 }
 let obj = new DobleLinkedList();
@@ -169,6 +178,8 @@ obj.addNode(50);
 // obj.display();
 // obj.displayReverse();
 
-obj.insertingBefore(10,8888);
-obj.display();
+obj.insertingBefore(60,8888);
+// obj.display();
 obj.displayReverse();
+
+obj.display();
